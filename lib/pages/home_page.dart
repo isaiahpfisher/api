@@ -33,8 +33,10 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(weather.currentTemp.toString(),
-                style: const TextStyle(fontSize: 120)),
+            Text(
+              weather.currentTemp.toString(),
+              style: const TextStyle(fontSize: 120),
+            ),
             const Padding(
               padding: EdgeInsets.only(top: 14.0, left: 8.0),
               child: Text('°F', style: TextStyle(fontSize: 50)),
@@ -66,14 +68,12 @@ class HomePage extends StatelessWidget {
             Text(
               weather.windDirection,
               style: TextStyle(
-                  fontSize: weather.windDirection.length == 1 ? 24 : 20),
+                fontSize: weather.windDirection.length == 1 ? 24 : 20,
+              ),
             ),
           ],
         ),
-        Text(
-          '${weather.windSpeed} mph',
-          style: const TextStyle(fontSize: 18),
-        ),
+        Text('${weather.windSpeed} mph', style: const TextStyle(fontSize: 18)),
       ],
     );
   }
@@ -93,15 +93,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-
   Widget _loading() {
     return const Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          CircularProgressIndicator(),
-          Text('Loading...'),
-        ],
+        children: [CircularProgressIndicator(), Text('Loading...')],
       ),
     );
   }
@@ -125,14 +121,12 @@ class HomePage extends StatelessWidget {
               const Spacer(flex: 3),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _windWidget(weather),
-                  _humidityWidget(weather),
-                ],
+                children: [_windWidget(weather), _humidityWidget(weather)],
               ),
               const Spacer(flex: 3),
               Text(
-                  'Last Refreshed: ${_formatLastUpdated(weather.lastUpdated)}'),
+                'Last Refreshed: ${_formatLastUpdated(weather.lastUpdated)}',
+              ),
               _defaultSpacer,
             ],
           ),
